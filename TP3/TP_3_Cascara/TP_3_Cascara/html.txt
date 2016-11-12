@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE *parch;
+    int i;
+    char bloque1[]="Bloque del pie  de html: <!DOCTYPE html><html><head><title>Example</title></head><body>";
+    char bloque2[2048];
+    char bloque3[]="Bloque del pie  de html: </html></body>";
+
+    parch = fopen("archivo.html", "w");
+
+    fprintf(parch, "%s\n", bloque1);
+
+    for(i=0; i<5; i++){
+        fprintf(parch, "%s %d\n", "bloque de cuerpo", i+1);
+    }
+
+    fprintf(parch, "%s", bloque3);
+
+    fclose(parch);
+
+    return 0;
+}
